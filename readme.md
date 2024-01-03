@@ -14,3 +14,4 @@ go install github.com/swaggo/swag/cmd/swag@latest
 ```bash
 swag init ; go run .
 ```
+

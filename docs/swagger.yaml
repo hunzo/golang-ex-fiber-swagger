@@ -1,0 +1,84 @@
+basePath: /
+definitions:
+  models.Authentication:
+    properties:
+      password:
+        type: string
+      user_name:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: fiber@swagger.io
+    name: API Support
+  description: This is a sample swagger for Fiber
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Fiber Example API
+  version: "1.0"
+paths:
+  /:
+    get:
+      consumes:
+      - application/json
+      description: xxxhh
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "201":
+          description: Status Created
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Get Status
+      tags:
+      - users
+  /autentication:
+    post:
+      consumes:
+      - application/json
+      description: User Autentication
+      parameters:
+      - description: Authentication
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/models.Authentication'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+      summary: Authentication
+      tags:
+      - users
+securityDefinitions:
+  ApiKeyAuth:
+    description: Description for what is this security definition being used
+    in: header
+    name: x-api-key
+    type: apiKey
+swagger: "2.0"
